@@ -50,7 +50,7 @@
 
 			<figure>
                 <img class="img-step img-step-0 is-active" src="sample-image-0.png" width="400" height="400"/>
-                <img class="img-step img-step-1" src="sample-image-1.png" width="400" height="200"/>
+                <img class="img-step img-step-1" src="sample-image-1.png" width="800" height="400"/>
                 <img class="img-step img-step-2" src="placeholder.png" width="800" height="400"/>
                 <img class="img-step img-step-3" src="placeholder.png" width="800" height="400"/>
                 <img class="img-step img-step-4" src="placeholder.png" width="800" height="400"/>
@@ -152,12 +152,26 @@
 			// 3. bind scrollama event handlers (this can be chained like below)
 			scroller
 				.setup({
-					step: "#scrolly article .step",
-					offset: 0.33,
-					debug: false
+					//step: "#scrolly article .step",
+					//offset: 0.33,
+					//debug: false
+                    step: "#scrolly .scroll-scenes .step",
+                    offset: 1,
+                     debug: true
 				})
 				.onStepEnter(handleStepEnter)
                 .onStepExit(handleStepExit);
+
+            window.addEventListener("scroll", (e) => {
+                progress.style.width = `${Math.max(
+                    0,
+                    Math.min(
+                    100,
+                    ((window.pageYOffset - scrollyOffset) * 100) /
+                        (scrollyHeight - window.innerHeight)
+                    )
+                )}%`;
+            });
 		}
 
 		// kick things off

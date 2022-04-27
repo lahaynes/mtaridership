@@ -1584,7 +1584,6 @@ figure {
     padding-bottom: 52.5%;
     z-index: 0;
     margin-top: 50px;
-    background-image: url("video/Splash-screen_new.gif");
   }
   
   @media only screen and (max-width: 640px) {
@@ -1593,7 +1592,6 @@ figure {
     }
     .cover {
       margin-top: 40px;
-      background-image: url("video/Splash-screen_mobile.gif");
       padding-bottom: 125%;
     }
     .cover_content {
