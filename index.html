@@ -5,9 +5,9 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Bouncing Back? Where NYC subway riders have returned and where they haven't.</title>
-	<meta name="description" content="Bouncing Back? Where NYC subway riders have returned and where they haven't." />
+	<meta name="description" content="Explore how the NYC Subway usage has changed since the pandemic" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="../style.css" />
+	<link rel="stylesheet" href="./style.css" />
 	<style>
 		#scrolly {
 			position: relative;
@@ -82,33 +82,39 @@
 <body>
 	<main>
 		<section id="intro">
-			<h1 class="intro__hed">Bouncing Back? Where NYC subway riders have returned and where they haven't.</h1>
+			<h1 class="intro__hed">Bouncing Back? Where NYC Subway Riders Have Returned and Where They Haven't.</h1>
 			<p class="intro__dek">
-				Scroll away, friends.
+				Scroll down, friends.
 			</p>
 		</section>
 
 		<section id="scrolly">
 			<article>
 				<div class="step" data-step="1">
-					<p>STEP 1</p>
+					<p>In 2019, the NYC Subway system averaged 60 million rides per week. </p>
 				</div>
 				<div class="step" data-step="2">
-					<p>STEP 2</p>
+					<p>At the start of the Covid-19 pandemic, MTA ridership reached a low of 5 million rides per week.</p>
 				</div>
 				<div class="step" data-step="3">
-					<p>STEP 3</p>
+					<p>Looking closer, some stations lost more riders than others</p>
 				</div>
 				<div class="step" data-step="4">
-					<p>STEP 4</p>
+					<p>Overall MTA ridership has not returned to prepandemic levels</p>
 				</div>
                 <div class="step" data-step="4">
-					<p>STEP 5</p>
+					<p>Some MTA stations have bounced back to pre pandemic levels while some haven't. Take a moment to explore where things have
+                        gone "back to normal".
+                    </p>
 				</div>
 			</article>
 
 			<figure>
-				<p>0</p>
+                <img class="img-step img-step-0 is-active" src="sample-image-0.png" width="400" height="400"/>
+                <img class="img-step img-step-1" src="sample-image-1.png" width="400" height="200"/>
+                <img class="img-step img-step-2" src="placeholder.png" width="800" height="400"/>
+                <img class="img-step img-step-3" src="placeholder.png" width="800" height="400"/>
+                <img class="img-step img-step-4" src="placeholder.png" width="800" height="400"/>
 			</figure>
 		</section>
 
@@ -146,19 +152,49 @@
 			scroller.resize();
 		}
 
+        // fade image in
+        function show_image(source) {
+            var img = body.append("img").attr("src", source).style("opacity", 0)
+            img.transition().duration(5000).ease(d3.easeLinear).style("opacity", 1)
+          }
+
 		// scrollama event handlers
 		function handleStepEnter(response) {
 			console.log(response);
 			// response = { element, direction, index }
 
 			// add color to current step only
-			step.classed("is-active", function (d, i) {
+			
+            step.classed("is-active", function (d, i) {
 				return i === response.index;
 			});
 
 			// update graphic based on step
-			figure.select("p").text(response.index + 1);
+            if (response.index == 0) {
+                figure.select("p").append("sample-image");
+            } else {
+			    figure.select("p").text(response.index + 1);
+            }
+
+            response.element.classList.add("is-active");
+            document
+                .getElementsByClassName(`img-step-${response.index}`)[0]
+                .classList.add("is-active");
 		}
+
+        function handleStepExit(response) {
+            console.log("exited");
+            console.log(response.element.classList);
+        
+            response.element.classList.remove("is-active");
+            if (response.direction == "up" && response.index == 0) {
+            } else if (response.direction == "down" && response.index == 21) {
+            } else {
+                document
+                .getElementsByClassName(`img-step-${response.index}`)[0]
+                .classList.remove("is-active");
+            }
+        }
 
 		function setupStickyfill() {
 			d3.selectAll(".sticky").each(function () {
@@ -181,7 +217,8 @@
 					offset: 0.33,
 					debug: false
 				})
-				.onStepEnter(handleStepEnter);
+				.onStepEnter(handleStepEnter)
+                .onStepExit(handleStepExit);
 		}
 
 		// kick things off
