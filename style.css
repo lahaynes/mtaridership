@@ -1274,8 +1274,8 @@
   .cover_content {
     position: absolute;
     width: 100%;
-    top: 52.5%;
-    transform: translateY(-47.5%);
+    top: 10.5%;
+    /* transform: translateY(-47.5%); */
     padding-left: 3%;
     padding-right: 3%;
     text-align: center;
@@ -1510,7 +1510,7 @@
     background-size: cover;
     background-position: 50% 50%;
     height: 0;
-    padding-bottom: 62.5%;
+    padding-bottom: 52.5%;
     z-index: 0;
     margin-top: 50px;
     background-image: url("video/Splash-screen_new.gif");
