@@ -64,11 +64,6 @@ figure {
     margin-bottom: 0;
 }
 
- .step.is-active {
-    background-color: goldenrod;
-    color: #3b3b3b;
-} 
-
 .step p {
     text-align: center;
     padding: 1rem;
@@ -1424,7 +1419,7 @@ figure {
     margin: 0 auto;
   }
   
-  #sticky {
+  /* #sticky {
     position: -webkit-sticky;
     position: sticky;
     text-align: center;
@@ -1433,11 +1428,11 @@ figure {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    /* background-color: #8a8a8a; */
+    background-color: #8a8a8a;
     z-index: 0;
     top: 50px;
     height: calc(100vh - 50px);
-  }
+  } */
   
   @media only screen and (max-width: 640px) {
     #sticky {
@@ -1483,7 +1478,7 @@ figure {
   .step {
     margin: 0 auto;
     opacity: 1;
-    /* height: 75vh; */
+    height: 75vh;
     padding-bottom: 75vh;
   }
   

@@ -25,37 +25,38 @@
               <p class="date"><em class="time">28 April 2022</em></p>
         </div>
     </div>
-		<!-- </section> -->
 
+    <div class = "article">
 		<section id="scrolly">
-			<article>
-				<div class="step" data-step="1">
-					<p>In 2019, the NYC Subway system averaged 60 million rides per week. </p>
-				</div>
-				<div class="step" data-step="2">
-					<p>At the start of the Covid-19 pandemic, MTA ridership reached a low of 5 million rides per week.</p>
-				</div>
-				<div class="step" data-step="3">
-					<p>Looking closer, some stations lost more riders than others</p>
-				</div>
-				<div class="step" data-step="4">
-					<p>Overall MTA ridership has not returned to prepandemic levels</p>
-				</div>
-                <div class="step" data-step="4">
-					<p>Some MTA stations have bounced back to pre pandemic levels while some haven't. Take a moment to explore where things have
-                        gone "back to normal".
-                    </p>
-				</div>
-			</article>
-
-			<figure>
+			<figure id="sticky">
                 <img class="img-step img-step-0 is-active" src="sample-image-0.png" width="400" height="400"/>
-                <img class="img-step img-step-1" src="sample-image-1.png" width="800" height="400"/>
+                <img class="img-step img-step-1" src="sample-image-1.png" width="1600" height="400"/>
                 <img class="img-step img-step-2" src="placeholder.png" width="800" height="400"/>
                 <img class="img-step img-step-3" src="placeholder.png" width="800" height="400"/>
                 <img class="img-step img-step-4" src="placeholder.png" width="800" height="400"/>
 			</figure>
+
+			<div class="scroll-scenes">
+                <div class="step step-0" data-step="0">
+					<p>In 2019, the NYC Subway system averaged 60 million rides per week. </p>
+				</div>
+				<div class="step step-1" data-step="1">
+					<p>At the start of the Covid-19 pandemic, MTA ridership reached a low of 5 million rides per week.</p>
+				</div>
+				<div class="step step-2" data-step="2">
+					<p>Looking closer, some stations lost more riders than others</p>
+				</div>
+				<div class="step step-3" data-step="3">
+					<p>Overall MTA ridership has not returned to prepandemic levels</p>
+				</div>
+                <div class="step step-4" data-step="4">
+					<p>Some MTA stations have bounced back to pre pandemic levels while some haven't. Take a moment to explore where things have
+                        gone "back to normal".
+                    </p>
+				</div>
+			</div>
 		</section>
+    </div>
 
 		<section id="outro"></section>
 	</main>
@@ -70,6 +71,11 @@
 		var figure = scrolly.select("figure");
 		var article = scrolly.select("article");
 		var step = article.selectAll(".step");
+
+        // const progress = document.getElementsByClassName("progress-bar")[0];
+        // const scrolly = document.getElementById("scrolly");
+        // let scrollyHeight = scrolly.clientHeight;
+        // let scrollyOffset = window.pageYOffset + scrolly.getBoundingClientRect().top;
 
 		// initialize the scrollama
 		var scroller = scrollama();
@@ -100,13 +106,6 @@
 		// scrollama event handlers
 		function handleStepEnter(response) {
 			console.log(response);
-			// response = { element, direction, index }
-
-			// add color to current step only
-			
-            step.classed("is-active", function (d, i) {
-				return i === response.index;
-			});
 
 			// update graphic based on step
             if (response.index == 0) {
@@ -122,7 +121,6 @@
 		}
 
         function handleStepExit(response) {
-            console.log("exited");
             console.log(response.element.classList);
         
             response.element.classList.remove("is-active");
@@ -152,26 +150,15 @@
 			// 3. bind scrollama event handlers (this can be chained like below)
 			scroller
 				.setup({
-					step: "#scrolly article .step",
-					offset: 0.33,
-					debug: false
-                    //step: "#scrolly .scroll-scenes .step",
-                    //offset: 1,
-                    //debug: true
+					//step: "#scrolly article .step",
+					//offset: 0.33,
+					//debug: false
+                    step: "#scrolly .scroll-scenes .step",
+                    offset: 0.5,
+                    debug: false
 				})
 				.onStepEnter(handleStepEnter)
                 .onStepExit(handleStepExit);
-
-            window.addEventListener("scroll", (e) => {
-                progress.style.width = `${Math.max(
-                    0,
-                    Math.min(
-                    100,
-                    ((window.pageYOffset - scrollyOffset) * 100) /
-                        (scrollyHeight - window.innerHeight)
-                    )
-                )}%`;
-            });
 		}
 
 		// kick things off
