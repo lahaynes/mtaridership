@@ -30,9 +30,20 @@
 		<section id="scrolly">
 			<figure id="sticky">
                 <img class="img-step img-step-0 is-active" src="sample-image-0.png" width="400" height="400"/>
-                <img class="img-step img-step-1" src="sample-image-1.png" width="1600" height="400"/>
-                <img class="img-step img-step-2" src="map-comparison.png" width="800" height="400"/>
-                <img class="img-step img-step-3" src="overview-of-bouncing-back.png" width="800" height="400"/>
+
+  <iframe class="img-step img-step-1" width="100%" height="453" frameborder="0"
+  src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=chart"></iframe>
+
+ <!------------------------------------------>
+ <iframe class="img-step img-step-2" width="100%" height="751" frameborder="0"
+  src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=LegendOrange%2Cviewof+percentilex%2ClegendBlue%2Cviewof+percentiley%2Cchart3"></iframe>
+
+  <!------------------------------------------>
+
+  <iframe class="img-step img-step-3" width="100%" height="784" frameborder="0"
+  src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=LegendOrange%2Cviewof+percentilex%2ClegendBlue%2Cviewof+percentiley%2Cheatmap"></iframe>
+
+    <!------------------------------------------>
                 <img class="img-step img-step-4" src="bounce-back-comparison.png" width="800" height="400"/>
 			</figure>
 
@@ -83,11 +94,11 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepH = Math.floor(window.innerHeight * 0.75);
+			var stepH = Math.floor(window.innerHeight * 0.8);
 			step.style("height", stepH + "px");
 
-			var figureHeight = window.innerHeight / 2;
-			var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+			var figureHeight = window.innerHeight ;
+			var figureMarginTop = (window.innerHeight - figureHeight) / 8;
 
 			figure
 				.style("height", figureHeight + "px")
