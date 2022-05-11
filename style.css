@@ -75,6 +75,7 @@ figure {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+
   }
   
   body {
@@ -461,9 +462,10 @@ figure {
   .navbar-fixed-bottom,
   .navbar-fixed-top {
     position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
+    top: 0;
+    width: 100%;
+    z-index: 100000030;
+    height: 40px;
   }
   
   @media (min-width: 768px) {
@@ -1137,7 +1139,7 @@ figure {
     line-height: 1.1;
   }
   
-  .nav {
+  nav {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1146,7 +1148,7 @@ figure {
     -ms-flex-align: stretch;
     align-items: stretch;
     z-index: 20;
-    padding-top: 1em;
+    margin-top: 60em;
     margin-bottom: 0.5em;
     cursor: pointer;
   }
@@ -1669,3 +1671,20 @@ figure {
     margin: auto;
   }
   
+
+
+
+
+/* code here written by ruby to try and make view of permenant acrooss the top*/
+
+.group_stacked{
+  margin-left:  20%;
+}
+
+
+iframe{
+  width: 100%;
+  padding: 20px;
+  margin: 20px;
+  height: 700px;
+}

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 	<main>
 		<!-- <section id="intro"> -->
     <div class="section s1 cover">
@@ -26,53 +27,91 @@
         </div>
     </div>
 
+
     <div class = "article">
 		<section id="scrolly">
 			<figure id="sticky">
-                <img class="img-step img-step-0 is-active" src="sample-image-0.png" width="400" height="400"/>
+                <img class="img-step img-step-0" src="sample-image-0.png" width="400" height="400"/>
+                <div class="img-step img-step-1" width="100%" height="8000px" id="observablehq-chart-25697af6"></div>
+<div class="img-step img-step-2 img-step-4" >
+	<div id="observablehq-chart3-25697af6"></div>
+</div>
 
-  <iframe class="img-step img-step-1" width="100%" height="453" frameborder="0"
-  src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=chart"></iframe>
-
- <!------------------------------------------>
- <iframe class="img-step img-step-2" width="100%" height="751" frameborder="0"
+ <!-----------------------------------
+ <iframe id="2" oading="eager" class="img-step img-step-2" width="100%" height="751" frameborder="0"
   src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=LegendOrange%2Cviewof+percentilex%2ClegendBlue%2Cviewof+percentiley%2Cchart3"></iframe>
 
-  <!------------------------------------------>
+  ---------------------------------------
 
-  <iframe class="img-step img-step-3" width="100%" height="784" frameborder="0"
+  <iframe  id="3" oading="eager"class="img-step img-step-3" width="100%" height="784" frameborder="0"
   src="https://observablehq.com/embed/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3?cells=LegendOrange%2Cviewof+percentilex%2ClegendBlue%2Cviewof+percentiley%2Cheatmap"></iframe>
 
-    <!------------------------------------------>
- <iframe class="img-step img-step-4" width="100%" height="784" frameborder="0"
+    --------------------------------------
+ <iframe id="4" oading="eager" class="img-step img-step-4" width="100%" height="784" frameborder="0"
   src="https://moshimoshirubydesu.blogspot.com/2022/05/bouncing-back-where-nyc-subway-riders.html"></iframe>
 
-     <!------------------------------------------>
-			</figure>
+     --------------------------------------->
 
+			</figure>
+<nav class="navbar-fixed-bottom">
+	<div class="group_stacked">
+		<div id="observablehq-LegendOrange-25697af6"></div>
+		<div id="observablehq-viewof-percentilex-25697af6"></div>
+	</div>
+	<div class="group_stacked">
+
+		<div id="observablehq-legendBlue-25697af6"></div>
+		<div id="observablehq-viewof-percentiley-25697af6"></div>
+	</div>
+
+</nav>
 			<div class="scroll-scenes">
                 <div class="step step-0" data-step="0">
-					<p>In 2019, the NYC Subway system averaged 60 million rides per week. </p>
+                	<br><br><br><br><br><br>
+                	<p>In March 2020, the Covid-19 pandemic reached the United States and New York City, which started a widespread lockdown and social isolation. Here we explore how MTA ridership has fallen since the pandemic, where ridership has recovered, and where mostly, it hasn't.
+
+Total MTA Ridership Traffic Per Week, from January 2020 to May 2022</p><hr>
+					<p>(left static graph)<br>In 2019, the NYC Subway system averaged 60 million rides per week. </p>
+
 				</div>
 				<div class="step step-1" data-step="1">
 					<p>At the start of the Covid-19 pandemic, MTA ridership reached a low of 5 million rides per week.</p>
 				</div>
 				<div class="step step-2" data-step="2">
 					<p>Looking closer, some stations lost more riders than others</p>
+					<br>
+					<h1>Below are drop down menus to help you explore how each individual subway station was affected or compare the top recovering stations with the ones that haven't quite returned to normal.</h2><br>
+					<h1>Hover over each line to see the name of the station.</h2>
 				</div>
 				<div class="step step-3" data-step="3">
-					<p>Overall MTA ridership has not returned to prepandemic levels</p>
+					<p>We concluded that overall MTA ridership has not returned to prepandemic levels.</p>
+					<h1>What conclusions have you come to? With Just line graphs?</h1>
 				</div>
                 <div class="step step-4" data-step="4">
-					<p>Some MTA stations have bounced back to pre pandemic levels while some haven't. Take a moment to explore where things have
-                        gone "back to normal".
-                    </p>
+					<h1>You might want to consider what you know about the geographic and economic or even tourist factors related to each area.</h1><br><br>
+					<h1>Don't worry, we made it easy for you. Scroll below to interact with a heat map and use the same drop down menus below</h1>
 				</div>
 			</div>
 		</section>
     </div>
 
-		<section id="outro"></section>
+
+    <div class="section cover">
+        <div class="cover_content"> 
+			<h1>NYC Subway Stations</h1>
+			<p class="cover_dek">
+				Feel free to click, zoom, hover. Don't forget the Drop Down Menu is always below to help aid in your comparisons exploration.
+			</p><br>
+			<p>
+				The transparency of the color as per the color scheme below compares the current amount of ridership at a station to the pre-pandemic amount. So if a station has returned closer to the numbers we saw back in 2019 at that location, the color of the dot will be lighter.
+			</p>
+	<div  id="observablehq-heatmap-25697af6"></div>
+<iframe  src="https://moshimoshirubydesu.blogspot.com/2022/05/bouncing-back-where-nyc-subway-riders.html
+"></iframe>
+        </div>
+    </div>
+
+
 	</main>
 
 	<!-- <div class='debug'></div> -->
@@ -97,11 +136,11 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepH = Math.floor(window.innerHeight * 0.8);
+			var stepH = Math.floor(window.innerHeight );
 			step.style("height", stepH + "px");
 
 			var figureHeight = window.innerHeight ;
-			var figureMarginTop = (window.innerHeight - figureHeight) / 8;
+			var figureMarginTop = (window.innerHeight - figureHeight) /2;
 
 			figure
 				.style("height", figureHeight + "px")
@@ -178,6 +217,34 @@
 		// kick things off
 		init();
 	</script>
+
+
+
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@60c5fdafa656194c/bouncing-back-where-nyc-subway-riders-have-returned-and-whe/3.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chart3") return new Inspector(document.querySelector("#observablehq-chart3-25697af6"));
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-25697af6"));
+  if (name === "LegendOrange") return new Inspector(document.querySelector("#observablehq-LegendOrange-25697af6"));
+  if (name === "viewof percentilex") return new Inspector(document.querySelector("#observablehq-viewof-percentilex-25697af6"));
+
+
+
+    if (name === "viewof percentilex") return new Inspector(document.querySelector("#observablehq-viewof-percentilex-25697af6-ruby"));
+
+
+
+
+  if (name === "legendBlue") return new Inspector(document.querySelector("#observablehq-legendBlue-25697af6"));
+  if (name === "viewof percentiley") return new Inspector(document.querySelector("#observablehq-viewof-percentiley-25697af6"));
+  if (name === "heatmap") return new Inspector(document.querySelector("#observablehq-heatmap-25697af6"));
+  return ["focus","diffsfilteredx","graph_datax","diffsfilteredy","graph_datay"].includes(name);
+});
+</script>
+
+
 </body>
 
 </html>
