@@ -1677,8 +1677,17 @@ figure {
 
 /* code here written by ruby to try and make view of permenant acrooss the top*/
 
+
 .group_stacked{
-  margin-left:  20%;
+  margin-left:  14%;
+} 
+.fixing_group_selector{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 14%;
+  background-color: rgba(134, 134, 134, 0.505);
 }
 
 
